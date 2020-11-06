@@ -7,9 +7,11 @@ def export_sine_wave(frequency=240, duration=1, sample_rate=44100):
                   generate_sine_wave(frequency, duration, sample_rate))
 
 def generate_sine_wave(frequency=240, duration=1, sample_rate=44100):
+    max_amplitude = 32767
     samples = np.linspace(0, duration, int(sample_rate * duration),
                            endpoint=False)
-    signal = np.sin(2 * np.pi * frequency * samples).astype(np.float32)
+    signal = (np.sin(2 * np.pi * frequency * samples)
+              * max_amplitude).astype(np.int16)
     return signal
 
 if __name__ == '__main__':
