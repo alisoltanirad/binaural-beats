@@ -1,3 +1,4 @@
+# https://github.com/alisoltanirad/Binaural_Beats
 import numpy as np
 from scipy.io import wavfile
 from sine_wave_generator import generate_sine_wave

@@ -1,4 +1,5 @@
 # https://github.com/alisoltanirad/Binaural_Beats
+# try "python binaural_beat.py -h" in your command-line
 import argparse
 import numpy as np
 from scipy.io import wavfile
