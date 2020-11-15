@@ -1,3 +1,3 @@
-# Binaural Beats Generator
+# Binaural Beat Generator
 
-Python module for generating binaural beats.
+Free and open source python module for generating binaural beats.
