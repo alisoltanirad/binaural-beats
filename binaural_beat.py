@@ -37,16 +37,19 @@ class BinauralBeat():
         wavfile.write(self.file_name, self.sample_rate, self.__beat)
 
         print("""* Binaural beat created:
-        - file name: {}
-        - duration: {} s
-        - binaural beat frequency (difference between frequencies): {} Hz
-        - left channel frequency: {} Hz
-        - right channel frequency: {} Hz
-        """.format(self.file_name,
-                   self.duration,
-                   self.bb_frequency,
-                   self.frequency_left,
-                   self.frequency_right))
+            - file name: {}
+            - duration: {} s
+            - binaural beat frequency (difference between frequencies): {} Hz
+            - left channel frequency: {} Hz
+            - right channel frequency: {} Hz
+            """.format(
+                self.file_name,
+                self.duration,
+                self.bb_frequency,
+                self.frequency_left,
+                self.frequency_right
+            )
+        )
 
 
     def __generate_beat(self):
@@ -56,12 +59,15 @@ class BinauralBeat():
 
     def __generate_sine_wave(self, frequency):
         max_amplitude = np.iinfo(np.int16).max
-        samples = np.linspace(0,
-                              self.duration,
-                              int(self.sample_rate * self.duration),
-                              endpoint=False)
-        signal = (np.sin(2 * np.pi * frequency * samples)
-                  * max_amplitude).astype(np.int16)
+        samples = np.linspace(
+            0,
+            self.duration,
+            int(self.sample_rate * self.duration),
+            endpoint=False
+        )
+        signal = (
+            np.sin(2 * np.pi * frequency * samples) * max_amplitude
+        ).astype(np.int16)
         return signal
 
 
@@ -103,9 +109,5 @@ def parse_arguments():
     return arguments
 
 
-def main():
-    BinauralBeat(vars(parse_arguments())).export()
-
-
 if __name__ == '__main__':
-    main()
+    BinauralBeat(vars(parse_arguments())).export()
